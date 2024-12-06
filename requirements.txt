@@ -9,3 +9,4 @@ wordcloud~=1.9.4
 bs4~=0.0.2
 beautifulsoup4~=4.12.3
 pillow~=11.0.0
+googlesearch-python~=1.2.5
