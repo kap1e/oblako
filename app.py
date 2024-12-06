@@ -29,7 +29,7 @@ not_about_tourism = ['личный', 'кабинет', 'тур', 'согласи
                      'зимний', 'выше', 'высокий', 'область', 'край', 'регион', 'проживание', 'новый', 'каникулы', 'вид',
                      'сложность', 'лето', 'весна', 'осень', 'человек', 'весь', 'отдых', 'нужно', 'россия', 'среднее',
                      'тот', 'который', 'рубль', 'руб', 'ввод', 'неверный', 'нагрузка', 'февраль', 'март', 'ввод',
-                     'серия', 'дед', 'ноябрь', 'апрель', 'этот', 'данный']
+                     'серия', 'дед', 'ноябрь', 'апрель', 'этот', 'данный', 'статья', 'страница', 'другой', 'свой', 'русский', ]
 
 def get_search_results(query, num_results=5):
     try:
@@ -102,17 +102,33 @@ st.write("Настройки облака слов:")
 
 bg_color = st.color_picker("Выберите цвет фона облака", "#FFFFFF")
 
+custom_colors = ['#A54040', '#B96E6E', '#CD9C9C', '#98C665', '#B0D28A', '#C7DDAD', '#A57865', '#BA988A']
+palettes = {
+    "пастельная": ['#F1B2B2', '#F1D7B2', '#F1F1B2', '#B2F1B2', '#B2F1D7'],
+    "темная": ['#3B0A45', '#5C3A8D', '#7D5B9D', '#A76BA0', '#C89DA3'],
+    "яркая": ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#8E44AD']
+}
+
 use_single_color = st.checkbox("Использовать один цвет для всех слов?")
+
 if use_single_color:
     word_color = st.color_picker("Выберите цвет слов", "#000000")
+
     def color_func_single(*args, **kwargs):
         return word_color
+
     color_func = color_func_single
 else:
-    custom_colors = ['#A54040', '#B96E6E', '#CD9C9C', '#98C665', '#B0D28A', '#C7DDAD', '#A57865', '#BA988A']
-    def color_func_random(*args, **kwargs):
-        return np.random.choice(custom_colors)
-    color_func = color_func_random
+    palette_choice = st.selectbox("Выберите палитру цветов", ["пастельная", "темная", "яркая", "made by shpingalety"])
+    if palette_choice == "made by shpingalety":
+        def color_func_random(*args, **kwargs):
+            return np.random.choice(custom_colors)
+        color_func = color_func_random
+    else:
+        selected_palette = palettes[palette_choice]
+        def color_func_palette(*args, **kwargs):
+            return np.random.choice(selected_palette)
+        color_func = color_func_palette
 
 font_choice = st.selectbox("Выберите шрифт", ["Roboto", "Ubuntu", "Montserrat"])
 font_paths = {
