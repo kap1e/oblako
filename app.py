@@ -96,7 +96,7 @@ def process_query(query, num_results=5):
 st.title("Визуализация облака слов для запросов")
 
 query = st.text_input("Введите ваш запрос для парсинга", value="поездки на новогодних каникулах по России в 2025")
-num_results = st.number_input("Количество результатов для парсинга", min_value=1, max_value=50, value=5)
+num_results = st.number_input("Количество результатов для парсинга (больше число - точнее подобраны слова, меньше число - быстрее генерация", min_value=1, max_value=20, value=5)
 
 st.write("Настройки облака слов:")
 
@@ -104,9 +104,9 @@ bg_color = st.color_picker("Выберите цвет фона облака", "#
 
 custom_colors = ['#A54040', '#B96E6E', '#CD9C9C', '#98C665', '#B0D28A', '#C7DDAD', '#A57865', '#BA988A']
 palettes = {
-    "пастельная": ['#F1B2B2', '#F1D7B2', '#F1F1B2', '#B2F1B2', '#B2F1D7'],
-    "темная": ['#3B0A45', '#5C3A8D', '#7D5B9D', '#A76BA0', '#C89DA3'],
-    "яркая": ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#8E44AD']
+    "Пастельная": ['#F1B2B2', '#F1D7B2', '#F1F1B2', '#B2F1B2', '#B2F1D7'],
+    "Тёмная": ['#8B0000', '#006400', '#000080', '#483D8B', '#D2691E'],
+    "Яркая": ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#8E44AD']
 }
 
 use_single_color = st.checkbox("Использовать один цвет для всех слов")
@@ -119,8 +119,8 @@ if use_single_color:
 
     color_func = color_func_single
 else:
-    palette_choice = st.selectbox("Выберите палитру цветов", ["пастельная", "темная", "яркая", "made by shpingalety"])
-    if palette_choice == "made by shpingalety":
+    palette_choice = st.selectbox("Выберите палитру цветов", ["Пастельная", "Тёмная", "Яркая", "Made by shpingalety"])
+    if palette_choice == "Made by shpingalety":
         def color_func_random(*args, **kwargs):
             return np.random.choice(custom_colors)
         color_func = color_func_random
