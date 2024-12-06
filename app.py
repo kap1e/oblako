@@ -124,12 +124,11 @@ font_path = font_paths[font_choice]
 
 
 
-mask_option = st.selectbox("Выберите форму облака", ("Без маски", "Звезда", "Облако", "Круг"))
+mask_option = st.selectbox("Выберите форму облака", ("Без маски", "Звезда", "Птица счастья"))
 mask = None
 if mask_option != "Без маски":
     mask_file = {"Звезда": "masks/star.png",
-                 "Облако": "masks/cloud.png",
-                 "Круг": "masks/circle.png"}[mask_option]
+                 "Птица счастья": 'masks/bird.png'}[mask_option]
     try:
         mask_image = Image.open(mask_file).convert("RGB")
         mask = np.array(mask_image)
