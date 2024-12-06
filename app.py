@@ -104,9 +104,9 @@ bg_color = st.color_picker("Выберите цвет фона облака", "#
 
 custom_colors = ['#A54040', '#B96E6E', '#CD9C9C', '#98C665', '#B0D28A', '#C7DDAD', '#A57865', '#BA988A']
 palettes = {
-    "Пастельная": ['#F1B2B2', '#F1D7B2', '#F1F1B2', '#B2F1B2', '#B2F1D7'],
+    "Пастельная": ['#F1B2B2', '#F1D7B2', '#F1F1B2', '#B2F1B2', '#B2F1D7', '#E0B0FF'],
     "Тёмная": ['#8B0000', '#006400', '#000080', '#483D8B', '#D2691E'],
-    "Яркая": ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#8E44AD']
+    "Яркая": ['#FF0000', '#FFFF00', '#00FF00', '#0000FF', '#9400D3']
 }
 
 use_single_color = st.checkbox("Использовать один цвет для всех слов")
@@ -140,9 +140,9 @@ font_path = font_paths[font_choice]
 
 
 
-mask_option = st.selectbox("Выберите форму облака", ("Без маски", "Звезда", "Птица счастья"))
+mask_option = st.selectbox("Выберите форму облака", ("Прямоугольник", "Звезда", "Птица счастья"))
 mask = None
-if mask_option != "Без маски":
+if mask_option != "Прямоугольник":
     mask_file = {"Звезда": "masks/star.png",
                  "Птица счастья": 'masks/bird.png'}[mask_option]
     try:
