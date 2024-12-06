@@ -109,7 +109,7 @@ palettes = {
     "яркая": ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#8E44AD']
 }
 
-use_single_color = st.checkbox("Использовать один цвет для всех слов?")
+use_single_color = st.checkbox("Использовать один цвет для всех слов")
 
 if use_single_color:
     word_color = st.color_picker("Выберите цвет слов", "#000000")
