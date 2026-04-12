@@ -1,6 +1,10 @@
 # Oblako — сервис по созданию облака слов
 ![Проект закрыт](https://img.shields.io/badge/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D1%82-red)
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![BeautifulSoup4](https://img.shields.io/badge/BeautifulSoup4-4C4C4C)
+![matplotlib](https://img.shields.io/badge/matplotlib-11557C?logo=matplotlib&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white)
 
 ***Проект для регионального этапа хакатона МПИТ. (1 место)***
 
@@ -12,11 +16,11 @@
 ***Стек проекта: Python, Streamlit, pymorphy2, natasha, BeautifulSoup4, matplotlib, numpy.***
 
 
-## Быстрый старт
+## Быстрый старт (Python 3.12)
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python app.py
+streamlit run app.py
 ```
 ***made by shpingalety, 2024***
