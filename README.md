@@ -23,4 +23,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+*P.S. если сервис внезапно упал, тыкните меня, восстановлю обратно,
+а еще вы все так же можете глянуть демо [(тык!)](https://disk.360.yandex.ru/i/ivcFtdSBPqqbKQ).*
+
 ***made by shpingalety, 2024***
